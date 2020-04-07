@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <util:properties id="jdbcProp" location="db.config"/>
+    <bean id="repoAgent" class="laborator.repository.RepositoryAgent">
+        <constructor-arg ref="jdbcProp"/>
+    </bean>
+    <bean id="repoExcursie" class="laborator.repository.RepositoryExcursie">
+        <constructor-arg ref="jdbcProp"/>
+    </bean>
+    <bean id="repoRezervare" class="laborator.repository.RepositoryRezervare">
+        <constructor-arg ref="jdbcProp"/>
+    </bean>
+    <bean id="service" class="laborator.server.Service">
+        <constructor-arg ref="repoAgent"/>
+        <constructor-arg ref="repoExcursie"/>
+        <constructor-arg ref="repoRezervare"/>
+    </bean>
+
+</beans>

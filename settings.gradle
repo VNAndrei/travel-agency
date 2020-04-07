@@ -1,0 +1,8 @@
+rootProject.name = 'LaboratorJava'
+include 'ServerSide'
+include 'ClientSide'
+include 'Model'
+include 'Services'
+include 'Persistence'
+include 'Networking'
+
